@@ -20,8 +20,10 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	for {
-		go checkLink(<-c, c)
+	// Wait for the channel to return some value
+	// After it return value, assign to 'l'
+	for l := range c {
+		go checkLink(l, c)
 	}
 
 }

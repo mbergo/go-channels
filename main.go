@@ -20,7 +20,7 @@ func main() {
 }
 
 func checkLink(link string) {
-	_, err := http.Get(link)
+	_, err := http.Head(link)
 	if err != nil {
 		fmt.Println("Link down", link)
 		return
